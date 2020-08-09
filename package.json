@@ -1,0 +1,26 @@
+{
+    "name": "restapinode",
+    "version": "1.0.0",
+    "description": "Creating REST API's ",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon ./index.js"
+    },
+    "keywords": [
+        "API",
+        "REST"
+    ],
+    "author": "Rodrigo García Ávila",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Garavirod/API-REST-NODE/issues"
+    },
+    "homepage": "https://github.com/Garavirod/API-REST-NODE#readme",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
