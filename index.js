@@ -1,19 +1,29 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 
-// Conect mongoose
-mongoose.Promise = global.Promise;
+
+// MongoDB 
 const dbname = "resapis";
-mongoose.connect(`mongodb://localhost/${dbname}`, {
-    useNewUrlParser: true
-});
+const uri = 'mongodb://localhost:27017/' + dbname;
+const options = { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true };
+mongoose.connect(uri, options).then(
+    /** ready to use. The `mongoose.connect()` promise resolves to mongoose instance. */
+    () => { console.log('Conectado a DB') },
+    /** handle initial connection error */
+    err => { err }
+);
 
 // Create server
 const app = express();
 
+// Enable body parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Routes Import
+
+// Import routes 
 const routes = require('./routes/index');
 
 
@@ -23,7 +33,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/API', routes);
+app.use('/api', routes);
 
 
 app.set('puerto', process.env.PORT || 3000);

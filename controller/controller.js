@@ -1,8 +1,18 @@
+const Client = require('../models/Client');
 const controllers = {};
 
 
-controllers.us = async(req, res) => {
-    res.send("Us");
+controllers.createClient = async(req, res, next) => {
+    const client = new Client(req.body);
+    try {
+        await client.save();
+        res.json({ success: true });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error });
+        // next go the next middleware adn not stop the applicaction
+        next();
+    }
 }
 
 
