@@ -1,4 +1,14 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+
+// Conect mongoose
+mongoose.Promise = global.Promise;
+const dbname = "resapis";
+mongoose.connect(`mongodb://localhost/${dbname}`, {
+    useNewUrlParser: true
+});
+
 // Create server
 const app = express();
 
