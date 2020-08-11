@@ -18,6 +18,15 @@ router.put("/clientupdate/:id", clientController.updateOneclient);
 router.delete('/delete/:id', clientController.deleteOneClient);
 
 // --------------Products Routes ---------------
-
+// CREATE A CLIENT
+router.post("/newproduct", productController.newProduct);
+// SHOW ALL CLIENTS
+router.get("/products", productController.getAllProducts);
+// GET A CLIENT BY ID
+router.get("/product/:id", productController.getOneProduct);
+// UPDATE CLIENT
+router.put("/updateproduct/:id", productController.updateOneProduct);
+// DELETE CLIENT
+router.delete('/deleteproduct/:id', productController.deleteOneProduct);
 
 module.exports = router;
