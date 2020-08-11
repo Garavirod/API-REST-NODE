@@ -10,7 +10,7 @@ controllers.createClient = async(req, res, next) => {
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error });
-        // next go the next middleware adn not stop the applicaction
+        // next go the next middleware and not stop the applicaction
         next();
     }
 }
