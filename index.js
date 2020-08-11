@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/api', routes);
+app.use('/api/v1.0/', routes);
 
 
 app.set('puerto', process.env.PORT || 3000);
