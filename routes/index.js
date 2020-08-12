@@ -19,7 +19,11 @@ router.delete('/delete/:id', clientController.deleteOneClient);
 
 // --------------Products Routes ---------------
 // CREATE A CLIENT
-router.post("/newproduct", productController.newProduct);
+router.post(
+    "/newproduct",
+    productController.uploadFile,
+    productController.newProduct
+);
 // SHOW ALL CLIENTS
 router.get("/products", productController.getAllProducts);
 // GET A CLIENT BY ID
