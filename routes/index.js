@@ -4,8 +4,9 @@ const router = express.Router();
 // Import controllers
 const clientController = require('../controllers/ClientController');
 const productController = require('../controllers/ProductController');
+const orderController = require('../controllers/OrderController');
 
-// --------------Cients Routes ---------------
+// --------------Cients' Routes ---------------
 // CREATE A CLIENT
 router.post("/create", clientController.createClient);
 // SHOW ALL CLIENTS
@@ -17,7 +18,7 @@ router.put("/clientupdate/:id", clientController.updateOneclient);
 // DELETE CLIENT
 router.delete('/delete/:id', clientController.deleteOneClient);
 
-// --------------Products Routes ---------------
+// --------------Products' Routes ---------------
 // CREATE A PRODUCT
 router.post(
     "/newproduct",
@@ -36,5 +37,11 @@ router.put(
 );
 // DELETE CLIENT
 router.delete('/deleteproduct/:id', productController.deleteOneProduct);
+
+
+// --------------Order's Routes ---------------
+router.post('/addorder', orderController.addOrder);
+router.get('/orders', orderController.getAllOrders);
+
 
 module.exports = router;
